@@ -2,7 +2,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    Chart.defaults.global.defaultFontColor = "#75787c";
+    Chart.defaults.global.defaultFontColor = "#FFFFFF";
 
     const LINECHARTEXMPLE = document.getElementById("lineChartCustom1"),
         BARCHART1 = document.getElementById("barChartCustom1"),
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Kanto", "Jhoto", "Hoen", "Sinnoh", "Unova", "Kalos", "Alola"],
             datasets: [
                 {
                     label: "Data Set One",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [0, 20, 17, 40, 30, 22, 30],
+                    data: [63, 59, 80, 81, 56, 55, 40,90],
                     spanGaps: false,
                 },
                 {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [0, 30, 22, 20, 35, 25, 50],
+                    data: [63, 59, 80, 81, 56, 55, 40,90],
                     spanGaps: false,
                 },
             ],
@@ -461,7 +461,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     {
                         display: true,
                         gridLines: {
-                            color: "transparent",
+                            display: false,
                         },
                     },
                 ],
@@ -469,25 +469,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     {
                         display: true,
                         gridLines: {
-                            color: "transparent",
+                            display: false,
                         },
                     },
                 ],
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Kanto", "Jhoto", "Hoen", "Sinnoh", "Unova", "Kalos"],
             datasets: [
                 {
-                    label: "Data Set 1",
+                    label: "Normals",
                     backgroundColor: ["#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9"],
                     hoverBackgroundColor: ["#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9"],
                     borderColor: ["#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9", "#864DD9"],
                     borderWidth: 0.5,
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [63, 59, 80, 81, 56, 55, 40],
                 },
                 {
-                    label: "Data Set 2",
+                    label: "Shinies",
                     backgroundColor: [
                         "rgba(98, 98, 98, 0.5)",
                         "rgba(98, 98, 98, 0.5)",
@@ -516,11 +516,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rgba(98, 98, 98, 0.5)",
                     ],
                     borderWidth: 0.5,
-                    data: [35, 40, 60, 47, 88, 27, 30],
+                    data: [75, 63, 88, 84, 38, 27],
                 },
             ],
         },
     });
+    
 
     // ------------------------------------------------------- //
     // Pie Chart Custom 1

@@ -1,7 +1,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    Chart.defaults.global.defaultFontColor = "#75787c";
+    Chart.defaults.global.defaultFontColor = "#FFFFFF";
 
     // ------------------------------------------------------- //
     // Line Chart
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             scales: {
                 xAxes: [
                     {
-                        display: false,
+                        display: true,
                         gridLines: {
                             color: "#eee",
                         },
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ],
                 yAxes: [
                     {
-                        display: false,
+                        display: true,
                         gridLines: {
                             color: "#eee",
                         },
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Kanto", "Jhoto", "Hoen", "Sinnoh", "Unova", "Kalos", "Alola"],
             datasets: [
                 {
                     label: "Data Set 1",
@@ -133,8 +133,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
+                        "rgba(134, 77, 217, 0.57)",
                     ],
                     hoverBackgroundColor: [
+                        "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
@@ -151,9 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rgba(134, 77, 217, 1)",
                         "rgba(134, 77, 217, 1)",
                         "rgba(134, 77, 217, 1)",
+                        "rgba(134, 77, 217, 1)",
                     ],
                     borderWidth: 1,
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [63, 59, 80, 81, 56, 55, 40,90],
                 },
                 {
                     label: "Data Set 2",
@@ -165,8 +168,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
+                        "rgba(75, 75, 75, 0.7)",
                     ],
                     hoverBackgroundColor: [
+                        "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
@@ -183,9 +188,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
+                        "rgba(75, 75, 75, 0.7)",
                     ],
                     borderWidth: 1,
-                    data: [35, 40, 60, 47, 88, 27, 30],
+                    data: [35, 40, 60, 47, 88, 27, 30, 50],
                 },
             ],
         },
@@ -328,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["Kanto", "Jhoto", "Hoen", "Sinnoh", "Unova", "Kalos", "Alola"],
             datasets: [
                 {
                     label: "Data Set 1",
