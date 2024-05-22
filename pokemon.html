@@ -122,15 +122,23 @@
                         <use xlink:href="#real-estate-1"> </use>
                       </svg><span>Home </span></a></li>
 
-              <li class="sidebar-item active"><a class="sidebar-link" href="charts.html"> 
+              <li class="sidebar-item active"><a class="sidebar-link" href="Pokemon.html"> 
+                <svg fill="currentColor" class="svg-icon svg-icon-sm bi bi-backpack2-fill text-gray-600 " viewBox="0 0 16 16">
+                  <path d="M5 13h6v-3h-1v.5a.5.5 0 0 1-1 0V10H5z"/>
+                  <path d="M6 2v.341C3.67 3.165 2 5.388 2 8v1.191l-1.17.585A1.5 1.5 0 0 0 0 11.118V13.5A1.5 1.5 0 0 0 1.5 15h1c.456.607 1.182 1 2 1h7c.818 0 1.544-.393 2-1h1a1.5 1.5 0 0 0 1.5-1.5v-2.382a1.5 1.5 0 0 0-.83-1.342L14 9.191V8a6 6 0 0 0-4-5.659V2a2 2 0 1 0-4 0m2-1a1 1 0 0 1 1 1v.083a6 6 0 0 0-2 0V2a1 1 0 0 1 1-1m0 3a4 4 0 0 1 3.96 3.43.5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14A4 4 0 0 1 8 4M4.5 9h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5"/>
+                </svg>
+                        <span>Pokemon</span></a></li>
+
+              <li class="sidebar-item active"><a class="sidebar-link" href="pokedex.html"> 
                       <svg class="svg-icon svg-icon-sm svg-icon-heavy">
                         <use xlink:href="#sales-up-1"> </use>
-                      </svg><span>Charts </span></a></li>
+                      </svg><span>Pokedex</span></a></li>
            
               <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
-                      <svg class="svg-icon svg-icon-sm svg-icon-heavy">
-                        <use xlink:href="#browser-window-1"> </use>
-                      </svg><span>Regions</span></a>
+                <svg fill="currentColor" class="svg-icon svg-icon-sm bi bi-map text-gray-600 text-gray-600" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+                </svg>
+                      <span>Regions</span></a>
                 <ul class="collapse list-unstyled " id="exampledropdownDropdown">
                   <li><a class="sidebar-link" href="#">Kanto</a></li>
                   <li><a class="sidebar-link" href="#">Johto</a></li>
@@ -144,96 +152,35 @@
                       <svg class="svg-icon svg-icon-sm svg-icon-heavy">
                         <use xlink:href="#disable-1"> </use>
                       </svg><span>Login page </span></a></li>
-        
       </nav>
+
       <div class="page-content">
             <!-- Page Header-->
             <div class="bg-dash-dark-2 py-4">
               <div class="container-fluid">
-                <h2 class="h5 mb-0">Charts</h2>
+                <h2 class="h5 mb-0">Pokemon</h2>
               </div>
             </div>
+
             <!-- Breadcrumb-->
             <div class="container-fluid py-2">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 py-3 px-0">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Charts</li>
+                  <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Pokemon</li>
                 </ol>
               </nav>
             </div>
-        <section class="pt-0">
-          <div class="container-fluid">
-            <div class="row gy-4">
-              <div class="col-lg-8">
-                <div class="card">
-                  <div class="card-body"><strong>Line Chart Example</strong>
-                    <canvas id="lineChartCustom1"></canvas>
-                  </div>
-                </div>
+            
+            <!--Pokemon card-->
+            <div class="card" style="width: 24rem; margin: 0 auto; height: 400px;">
+              <img src="pokemon/sinnoh/garchomp.png" class="card-img-top" style="object-fit: cover; width: 100%; height: 100%;" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Garchomp</h5>
               </div>
-              <div class="col-lg-4">       
-                <div class="card">
-                  <div class="card-body"><strong>Line Chart Example</strong>
-                    <canvas id="lineChartCustom2"></canvas>
-                  </div>
-                </div>
-                <div class="card">                                   
-                  <div class="card-body">
-                    <canvas id="lineChartCustom3"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="card">
-                  <div class="card-body"><strong>Bar Chart Example</strong>
-                    <canvas id="barChartCustom1"></canvas>
-                  </div>
-                </div>
-                <div class="card">                                   
-                  <div class="card-body">
-                    <canvas id="barChartCustom2"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="card">
-                  <div class="card-body"><strong>Bar Chart Example</strong>
-                    <canvas id="barChartCustom3"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body"><strong>Pie Chart Example</strong>
-                    <canvas id="pieChartCustom1"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body"><strong>Pie Chart Example</strong>
-                    <canvas id="doughnutChartCustom1"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body"><strong>Polar Chart Example</strong>
-                    <canvas id="polarChartCustom"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body"><strong>Radar Chart Example</strong>
-                    <canvas id="radarChartCustom"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </section>
+          
+
         <!-- Page Footer-->
         <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
           <div class="container-fluid text-center">
