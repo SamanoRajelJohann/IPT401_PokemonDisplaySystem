@@ -60,7 +60,7 @@ for ($i = 0; $i < min($totalImages, 25); $i++) {
     $randomLevel = rand(1, 99);
 
     // Generate random gender (for example)
-    $gender = rand(0, 1) ? 'Male' : 'Female';
+    $gender = rand(0, 1) ? ' Male' : ' Female';
 
     // Get the Pokémon name from the image filename
     $imageName = pathinfo($images[$i], PATHINFO_FILENAME);
@@ -195,15 +195,17 @@ for ($i = 0; $i < min($totalImages, 25); $i++) {
                         <img src="<?php echo $pokemon['image']; ?>" class="card-img-top" alt="<?php echo $pokemon['name']; ?>">
                         <div class="card-body">
                             <h1 class="card-title"><?php echo $pokemon['name']; ?></h1>
-                            <p class="card-level">Level: <?php echo $pokemon['level']; ?></p>
+                            <p class="card-level">Level: </p>
+                            <p><?php echo $pokemon['level']; ?></p>
                             <p class="card-types">
-                                Type:
+                                Type:<br>
                                 <?php foreach ($pokemon['types'] as $type): ?>
                                     <span class="card-type <?php echo strtolower($type); ?>"><?php echo $type; ?></span>
                                 <?php endforeach; ?>
                             </p>
-                            <div class="card-gender <?php echo strtolower($pokemon['gender']); ?>"><?php echo $pokemon['gender']; ?></div>
-                            <p class="card-type">Region: <?php echo $pokemon['region']; ?></p>
+                            <span class="card-text">Gender: </span>
+                            <p><span class="card-gender <?php echo strtolower($pokemon['gender']); ?>"><?php echo $pokemon['gender']; ?></span></p>
+                            <p class="card-type">Region: <br><?php echo $pokemon['region']; ?></p>
                         </div>
                     </div>
                 </div>
