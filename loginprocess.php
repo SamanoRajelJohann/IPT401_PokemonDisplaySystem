@@ -74,7 +74,7 @@ function addUser($conn) {
         session_start();
         $_SESSION['Username'] = $username;
         $_SESSION['Email'] = $email;
-        header("Location: home.html");
+        header("Location: home.php");
         exit();
     } else {
         $error = "Error adding user. Please try again.";

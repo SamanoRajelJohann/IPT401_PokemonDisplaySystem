@@ -157,7 +157,7 @@
       <div id="pokemon-container" class="container">
         <div class="column">
         <?php
-          include 'logic/pokemonrandomgenerator.php';
+          include 'logic/pokemonkantogenerator.php';
         ?>
         </div>
       </div>
