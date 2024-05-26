@@ -3,7 +3,7 @@
   <head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dark Admin by Bootstrapious.com</title>
+    <title>Pokémon Display</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -127,12 +127,12 @@
                   <path d="M5 13h6v-3h-1v.5a.5.5 0 0 1-1 0V10H5z"/>
                   <path d="M6 2v.341C3.67 3.165 2 5.388 2 8v1.191l-1.17.585A1.5 1.5 0 0 0 0 11.118V13.5A1.5 1.5 0 0 0 1.5 15h1c.456.607 1.182 1 2 1h7c.818 0 1.544-.393 2-1h1a1.5 1.5 0 0 0 1.5-1.5v-2.382a1.5 1.5 0 0 0-.83-1.342L14 9.191V8a6 6 0 0 0-4-5.659V2a2 2 0 1 0-4 0m2-1a1 1 0 0 1 1 1v.083a6 6 0 0 0-2 0V2a1 1 0 0 1 1-1m0 3a4 4 0 0 1 3.96 3.43.5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14A4 4 0 0 1 8 4M4.5 9h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5"/>
                 </svg>
-                        <span>Pokemon</span></a></li>
+                        <span>Pokémon</span></a></li>
 
               <li class="sidebar-item active"><a class="sidebar-link" href="pokedex.html"> 
                       <svg class="svg-icon svg-icon-sm svg-icon-heavy">
                         <use xlink:href="#sales-up-1"> </use>
-                      </svg><span>Pokedex</span></a></li>
+                      </svg><span>Pokédex</span></a></li>
            
               <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
                 <svg fill="currentColor" class="svg-icon svg-icon-sm bi bi-map text-gray-600 text-gray-600" viewBox="0 0 16 16">
@@ -158,7 +158,7 @@
             <!-- Page Header-->
             <div class="bg-dash-dark-2 py-4">
               <div class="container-fluid">
-                <h2 class="h5 mb-0">Pokemon</h2>
+                <h2 class="h5 mb-0">Pokémon</h2>
               </div>
             </div>
 
@@ -167,19 +167,19 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 py-3 px-0">
                   <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Pokemon</li>
+                  <li class="breadcrumb-item active" aria-current="page">Pokémon</li>
                 </ol>
               </nav>
             </div>
             
             <!-- Pokemon cards and randomizer button -->
-      <div id="pokemon-container">
+      <div id="pokemon-container" class="container">
+        <div class="column">
         <?php
         // Include the PHP script six times to display six random Pokémon
-        for ($i = 0; $i < 6; $i++) {
           include 'logic/pokemonrandomgenerator.php';
-        }
         ?>
+        </div>
       </div>
       <div class="text-center">
         <button id="randomizeButton" class="btn btn-primary" onclick="location.reload();">Randomize Pokémon</button>
