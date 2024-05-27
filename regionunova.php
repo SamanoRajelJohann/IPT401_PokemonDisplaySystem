@@ -107,7 +107,7 @@
       </a>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="pokedex.html"> 
+      <a class="sidebar-link" href="pokedex.php"> 
         <svg style="display: none;">
           <symbol id="pokedex-icon" viewBox="0 0 24 24">
             <path d="M21 4h-3V2h-2v2H8V2H6v2H3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm0 17H3V9h18v12z"/>
@@ -118,7 +118,7 @@
         <svg fill="currentColor" class="svg-icon svg-icon-sm text-gray-600" viewBox="0 0 24 24">
           <use xlink:href="#pokedex-icon"></use>
         </svg>
-        <span>Pokédex</span>
+        <span>Table</span>
       </a>
     </li>
     <li class="sidebar-item">

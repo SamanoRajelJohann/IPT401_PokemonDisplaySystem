@@ -156,13 +156,129 @@
       <div class="page-content">  
       <div id="pokemon-container" class="container">
         <div class="column">
+            <form method="POST" id="employeeForm" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <!-- Add input field for Username_id -->
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">Update</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <label for="Username_id">Username ID:</label>
+                        <input type="text" name="Username_id" id="Username_id" required>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Email" name="Email" required>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="Username">Username:</label>
+                        <input type="text" id="Username" name="Username" required>
+                    </li>
+                    <li class="list-group-item">
+                        <label for="Password">Password:</label>
+                        <input type="text" id="Password" name="Password" required>
+                    </li>
+                </ul>
+                <br>
+                <input type="hidden" name="action" value="update">
+                <button type="submit" value="submit">Submit</button>
+                <button onclick="window.location.href='pokedex.php'">Back</button>
+            </div>
+        </form>
         <?php
-          include 'logic/pokemonkantogenerator.php';
+        
+        function connectToDatabase(){
+            $servername = "localhost";
+            $username = "dev";
+            $password = "devs";
+            $dbname = "pokemondisplaysystem";
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            return $conn;
+        }
+        
+        function executeQuery($conn, $sql, $params = []){
+            try {
+                $stmt = $conn->prepare($sql);
+        
+                if (!$stmt) {
+                    throw new Exception($conn->error);
+                }
+        
+                // Check if it's a SELECT query
+                $isSelectQuery = stripos($sql, 'SELECT') === 0;
+        
+                if (!$isSelectQuery && !empty($params)) {
+                    // For non-SELECT queries, proceed with binding parameters
+                    $types = str_repeat('s', count($params));
+                    $stmt->bind_param($types, ...$params);
+                }
+        
+                $stmt->execute();
+        
+                if ($isSelectQuery) {
+                    $result = $stmt->get_result();
+        
+                    if ($result === FALSE) {
+                        throw new Exception($stmt->error);
+                    }
+        
+                    return $result;
+                }
+        
+                return true; // For non-SELECT queries
+            } catch (Exception $e) {
+                // Log the exception or handle it appropriately
+                echo "Error: " . $e->getMessage();
+        
+                // Close the statement if it's not null
+                if ($stmt !== null) {
+                    $stmt->close();
+                }
+        
+                // Close the connection and reconnect
+                $conn->close();
+                $conn = connectToDatabase();
+        
+                // Retry the query
+                return executeQuery($conn, $sql, $params);
+            }    
+        }
+        
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+            $conn = connectToDatabase();
+            $action = $_POST['action'];
+        
+            if ($action == "update") {
+                // Update user
+                $Email = $_POST['Email'] ?? '';
+                $Username = $_POST['Username'] ?? '';
+                $Password = $_POST['Password'] ?? '';
+                $Username_id = $_POST['Username_id'] ?? ''; // Get Username_id from form
+        
+                // Prepare and execute the SQL statement
+                $sql = "UPDATE user_account SET Email=?, Username=?, Password=? WHERE Username_id=?";
+                
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sssi", $Email, $Username, $Password, $Username_id);
+                
+                if ($stmt->execute()) {
+                    echo "Record updated successfully";
+                } else {
+                    echo "Error updating record: " . $stmt->error;
+                }
+        
+                $stmt->close();
+            } 
+        
+            $conn->close();
+        }       
+        $conn = connectToDatabase();
         ?>
+    </div>
+</div>
         </div>
-      </div>
-      <div class="text-center">
-        <button id="randomizeButton" class="btn btn-primary" onclick="location.reload();">Randomize Pokémon</button>
       </div>
         <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
         <div class="container-fluid text-center">
