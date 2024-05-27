@@ -18,7 +18,6 @@ $pokemonTypes = [
         'Hawlucha' => ['Fighting','Flying'],
         'Chestnaught' => ['Grass','Fighting'],
         'Diance' => ['Rock','Fairy'], 
-        'Dedenne' => ['Electric'],
         'Froakie' => ['Water'], 
         'Frogadier' => ['Water'], 
         'Greninja' => ['Water','Dark'], 
@@ -105,83 +104,25 @@ for ($i = 0; $i < min($totalImages, 25); $i++) {
     .card-type {
         font-weight: bold;
     }
-
-    .electric {
-        color: #F7D02C; /* Electric type color */
-    }
-
-    .fire {
-        color: #EE8130; /* Fire type color */
-    }
-
-    .water {
-        color: #6390F0; /* Water type color */
-    }
-
-    .grass {
-        color: #7AC74C; /* Grass type color */
-    }
-
-    .ice {
-        color: #96D9D6; /* Ice type color */
-    }
-
-    .fighting {
-        color: #C22E28; /* Fighting type color */
-    }
-
-    .poison {
-        color: #A33EA1; /* Poison type color */
-    }
-
-    .ground {
-        color: #E2BF65; /* Ground type color */
-    }
-
-    .flying {
-        color: #A98FF3; /* Flying type color */
-    }
-
-    .psychic {
-        color: #F95587; /* Psychic type color */
-    }
-
-    .bug {
-        color: #A6B91A; /* Bug type color */
-    }
-
-    .rock {
-        color: #B6A136; /* Rock type color */
-    }
-
-    .ghost {
-        color: #735797; /* Ghost type color */
-    }
-
-    .dragon {
-        color: #6F35FC; /* Dragon type color */
-    }
-
-    .dark {
-        color: #705746; /* Dark type color */
-    }
-
-    .steel {
-        color: #B7B7CE; /* Steel type color */
-    }
-
-    .fairy {
-        color: #D685AD; /* Fairy type color */
-    }
-
-
-    .card-gender.male {
-        color: blue; /* Male gender color */
-    }
-
-    .card-gender.female {
-        color: pink; /* Female gender color */
-    }
+    .electric { color: #F7D02C; } /* Electric type color */
+        .fire { color: #EE8130; } /* Fire type color */
+        .water { color: #6390F0; } /* Water type color */
+        .grass { color: #7AC74C; } /* Grass type color */
+        .ice { color: #96D9D6; } /* Ice type color */
+        .fighting { color: #C22E28; } /* Fighting type color */
+        .poison { color: #A33EA1; } /* Poison type color */
+        .ground { color: #E2BF65; } /* Ground type color */
+        .flying { color: #A98FF3; } /* Flying type color */
+        .psychic { color: #F95587; } /* Psychic type color */
+        .bug { color: #A6B91A; } /* Bug type color */
+        .rock { color: #B6A136; } /* Rock type color */
+        .ghost { color: #735797; } /* Ghost type color */
+        .dragon { color: #6F35FC; } /* Dragon type color */
+        .dark { color: #705746; } /* Dark type color */
+        .steel { color: #B7B7CE; } /* Steel type color */
+        .fairy { color: #D685AD; } /* Fairy type color */
+        .card-gender.male { color: blue; } /* Male gender color */
+        .card-gender.female { color: pink; } /* Female gender color */
     </style>
 </head>
 <body>
