@@ -153,37 +153,41 @@
     </li>
   </ul>
 </nav>
-      <div class="page-content">  
-      <div id="pokemon-container" class="container">
-        <div class="column">
+<div class="page-content">  
+    <div id="pokemon-container" class="container">
+        <div class="column" style="padding: 25px;">
             <form method="POST" id="employeeForm" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <!-- Add input field for Username_id -->
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">Update</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <label for="Username_id">Username ID:</label>
-                        <input type="text" name="Username_id" id="Username_id" required>
-                    </li>
-                    <li class="list-group-item">
-                        <label for="Email">Email:</label>
-                        <input type="text" id="Email" name="Email" required>
-                    </li>
-                    <li class="list-group-item">
-                        <label for="Username">Username:</label>
-                        <input type="text" id="Username" name="Username" required>
-                    </li>
-                    <li class="list-group-item">
-                        <label for="Password">Password:</label>
-                        <input type="text" id="Password" name="Password" required>
-                    </li>
-                </ul>
-                <br>
-                <input type="hidden" name="action" value="update">
-                <button type="submit" value="submit">Submit</button>
-                <button onclick="window.location.href='pokedex.php'">Back</button>
-            </div>
-        </form>
+                <!-- Add input field for Username_id -->
+                <div class="card mx-auto" style="width: 18rem; height: 476px;"> <!-- Add padding here -->
+                    <div class="card-header text-center" style="font-size: larger;">Update</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label for="Username_id">Username ID:</label>
+                            <input type="text" name="Username_id" id="Username_id" required>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="Email">Email:</label>
+                            <input type="text" id="Email" name="Email" required>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="Username">Username:</label>
+                            <input type="text" id="Username" name="Username" required>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="Password">Password:</label>
+                            <input type="text" id="Password" name="Password" required>
+                        </li>
+                    </ul>
+                    <br>
+                    <input type="hidden" name="action" value="update">
+                    <button type="submit" value="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-danger" onclick="window.location.href='pokedex.php'">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
         <?php
         
         function connectToDatabase(){

@@ -82,7 +82,7 @@
   </div>
   <span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
   <ul class="list-unstyled">
-    <li class="sidebar-item active">
+    <li class="sidebar-item">
       <a class="sidebar-link" href="home.php"> 
         <svg fill="currentColor" class="svg-icon svg-icon-sm text-gray-600" viewBox="0 0 24 24">
           <use xlink:href="#real-estate-1"></use>
@@ -106,7 +106,7 @@
         <span>Pokémon</span>
       </a>
     </li>
-    <li class="sidebar-item">
+    <li class="sidebar-item active">
       <a class="sidebar-link" href="pokedex.php"> 
         <svg style="display: none;">
           <symbol id="pokedex-icon" viewBox="0 0 24 24">
@@ -218,52 +218,58 @@ function executeQuery($conn, $sql, $params = []){
 }
 
 function displayUserData($conn) {
-    $sql_select = "SELECT * FROM user_account";
-    $result = executeQuery($conn, $sql_select);
-    $userCount = 1; // Start from 1
+  $sql_select = "SELECT * FROM user_account";
+  $result = executeQuery($conn, $sql_select);
+  $userCount = 1; // Start from 1
 
-    if ($result->num_rows > 0) {
-        echo "<table border='1'>";
-        echo "<thead>";
-        echo "<tr>
-                <th>Number</th>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Action</th>
-              </tr>";
-        echo "</thead>";
-        echo "<tbody>";
+  if ($result->num_rows > 0) {
+    echo "<div class='table-responsive' style='padding: 20px;'>";
+      echo "<table class='table table-bordered table-striped'>";
+      echo "<thead class='thead-dark'>";
+      echo "<tr>
+              <th>Number</th>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Action</th>
+            </tr>";
+      echo "</thead>";
+      echo "<tbody>";
 
-        while ($row = $result->fetch_assoc()) {
+      while ($row = $result->fetch_assoc()) {
           echo "<tr>";
           echo "<td>" . $userCount . "</td>"; // Display count
           echo "<td>" . $row["Username_id"] ."</td>";
           echo "<td>" . $row["Email"] . "</td>";
           echo "<td>" . $row["Username"] . "</td>";
-          echo "<td>";
+          echo "<td class='text-center'>";
+          echo "<div class='btn-group' role='group'>";
           echo "<form action='update.php' method='get'>";
           echo "<input type='hidden' name='Username_id' value='" . $row["Username_id"] . "'>";
           echo "<input type='hidden' name='Email' value='" . $row["Email"] . "'>";
           echo "<input type='hidden' name='Username' value='" . $row["Username"] . "'>";
           echo "<input type='hidden' name='Password' value='" . $row["Password"] . "'>";
-          echo "<input type='submit' style='background-color: blue; color: white;' value='Update'>";
+          echo "<button type='submit' class='btn btn-success btn-sm'>Update</button>";
           echo "</form>";
-          echo "<form method='post' action='".$_SERVER['PHP_SELF']."'>";
+          echo "<form method='post' action='".$_SERVER['PHP_SELF']."' class='d-inline'>";
           echo "<input type='hidden' name='Username_id' value='".$row["Username_id"]."'>";
           echo "<input type='hidden' name='action' value='delete'>";
-          echo "<input type='submit' style='background-color: red; color: white;' value='Delete'>";
+          echo "<button type='submit' class='btn btn-danger btn-sm'>Delete</button>";
           echo "</form>";
+          echo "</div>";
           echo "</td>";
           echo "</tr>";          
-            $userCount++; // Increment count
-        }
-        echo "</tbody>";
-        echo "</table>";
-    } else {
-        echo "No records found.";
-    }
+          $userCount++; // Increment count
+      }
+      echo "</tbody>";
+      echo "</table>";
+      echo "</div>";
+  } else {
+      echo "No records found.";
+  }
 }
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
     $conn = connectToDatabase();
@@ -286,17 +292,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         }
         $stmt->close();
     } elseif ($action == "delete") {
-        // Delete user
-        $sql = "DELETE FROM user_account WHERE Username_id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $Username_id);
-        if ($stmt->execute()) {
-            echo "Record deleted successfully";
-        } else {
-            echo "Error deleting record: " . $stmt->error;
-        }
-        $stmt->close();
-    }
+      // Delete user
+      $sql = "DELETE FROM user_account WHERE Username_id=?";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param("i", $Username_id);
+      if ($stmt->execute()) {
+          // Close the statement
+          $stmt->close();
+          
+          // Redirect to index.php
+          echo '<script>window.location.href = "index.php";</script>';
+          exit; // Stop further execution
+      } else {
+          echo "Error deleting record: " . $stmt->error;
+      }
+  }
+  
 
     $conn->close();
 }

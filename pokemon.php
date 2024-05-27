@@ -82,15 +82,15 @@
   </div>
   <span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Main</span>
   <ul class="list-unstyled">
-    <li class="sidebar-item active">
+    <li class="sidebar-item">
       <a class="sidebar-link" href="home.php"> 
         <svg fill="currentColor" class="svg-icon svg-icon-sm text-gray-600" viewBox="0 0 24 24">
           <use xlink:href="#real-estate-1"></use>
         </svg>
         <span>Home</span>
       </a>
-    </li>
-    <li class="sidebar-item">
+    </li> 
+    <li class="sidebar-item active">
       <a class="sidebar-link" href="pokemon.php"> 
         <svg style="display: none;">
           <symbol id="pokeball" viewBox="0 0 24 24">
