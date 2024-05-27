@@ -153,155 +153,18 @@
     </li>
   </ul>
 </nav>
-<div class="page-content">        
-<section>
-  <div class="container-fluid">
-    <div class="row gy-4 justify-content-center">
-      <div class="col-md-3 col-sm-6">
-        <div class="card mb-0">
-          <div class="card-body">
-            <?php
-              function connectToDatabase() {
-                $servername = "localhost";
-                $username = "dev";
-                $password = "devs";
-                $dbname = "pokemondisplaysystem";
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                if ($conn->connect_error) {
-                  die("Connection failed: " . $conn->connect_error);
-                }
-                return $conn;
-              }
-
-              function executeQuery($conn, $sql, $params = []) {
-                $stmt = $conn->prepare($sql);
-                if (!$stmt) {
-                  throw new Exception($conn->error);
-                }
-
-                $isSelectQuery = stripos($sql, 'SELECT') === 0;
-
-                if (!empty($params)) {
-                  $types = str_repeat('s', count($params));
-                  $stmt->bind_param($types, ...$params);
-                }
-
-                $stmt->execute();
-
-                if ($isSelectQuery) {
-                  $result = $stmt->get_result();
-                  if ($result === FALSE) {
-                    throw new Exception($stmt->error);
-                  }
-                  return $result;
-                }
-
-                return $stmt->affected_rows;
-              }
-
-              $conn = connectToDatabase();
-
-              $query = "SELECT COUNT(*) as Username FROM user_account";
-              $result = executeQuery($conn, $query);
-              $row = mysqli_fetch_assoc($result);
-              $totalUsers = $row['Username'];
-
-              $maxUsers = 100;
-              $percentage = ($totalUsers / $maxUsers) * 100;
-            ?>
-            <div class="d-flex align-items-end justify-content-between mb-2">
-              <div class="me-2">
-                <svg class="svg-icon" style="width: 28px; height: 28px;">
-                  <use xlink:href="#user-1"></use>
-                </svg>
-                <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">User Account</p>
-              </div>
-              <p class="text-xxl lh-1 mb-0 text-dash-color-1"><?php echo $totalUsers; ?></p>
-            </div>
-            <div class="progress" style="height: 3px">
-              <div class="progress-bar bg-dash-color-1" role="progressbar" style="width: <?php echo $percentage; ?>%" aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
+      <div class="page-content">  
+      <div id="pokemon-container" class="container">
+        <div class="column">
+        <?php
+          include 'logic/pokemonkalosgenerator.php';
+        ?>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="card mb-0">
-          <div class="card-body">
-            <div class="d-flex align-items-end justify-content-between mb-2">
-              <div class="me-2">
-                <svg style="display: none;">
-                  <symbol id="pokeball" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" fill="white" stroke="black" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="4" fill="white" stroke="black" stroke-width="2"/>
-                    <path d="M2 12h20" stroke="black" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="2" fill="black"/>
-                  </symbol>
-                </svg>                          
-                <svg fill="currentColor" class="svg-icon" style="width: 28px; height: 28px;"> 
-                  <use xlink:href="#pokeball"></use>
-                </svg>                         
-                <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Pokémon</p>
-              </div>
-              <p class="text-xxl lh-1 mb-0 text-dash-color-2">145</p>
-            </div>
-            <div class="progress" style="height: 3px">
-              <div class="progress-bar bg-dash-color-2" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
+      <div class="text-center">
+        <button id="randomizeButton" class="btn btn-primary" onclick="location.reload();">Randomize Pokémon</button>
       </div>
-      <div class="col-md-3 col-sm-6">
-        <div class="card mb-0">
-          <div class="card-body">
-            <div class="d-flex align-items-end justify-content-between mb-2">
-              <div class="me-2">
-                <svg style="display: none;">
-                  <symbol id="map-icon" viewBox="0 0 24 24">
-                    <path d="M12 1l-5 7h10zm5 15l5-7H7z"/>
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                  </symbol>
-                </svg>
-                <svg fill="currentColor" class="svg-icon" style="width: 28px; height: 28px;" viewBox="0 0 24 24">
-                  <use xlink:href="#map-icon"></use>
-                </svg>
-                <p class="text-sm text-uppercase text-gray-600 lh-1 mb-0">Regions</p>
-              </div>
-              <p class="text-xxl lh-1 mb-0 text-dash-color-3">6</p>
-            </div>
-            <div class="progress" style="height: 3px">
-              <div class="progress-bar bg-dash-color-3" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="pt-0">
-  <div class="container-fluid">
-    <div class="row gy-4">
-      <div class="col-lg-19">
-        <div class="card">
-          <div class="card-body">
-            <div style="background: linear-gradient(to right, #3c3b3b, #282522);">
-              <div class="card-body">
-                <p style="color: rgb(229, 201, 177); font-size: 25px;">
-                  Pokemon Display refers to a feature in various Pokemon games and applications where players can view detailed information about different Pokemon species. This feature typically allows players to access information such as a Pokemon's name, type, abilities, base stats, evolution chain, moveset, and sometimes even its lore or flavor text.
-                  The Pokemon Display feature is commonly found within the player's Pokedex, a device used to catalog and record information about Pokemon encountered during gameplay. Players can browse through the Pokedex to learn about different Pokemon they have encountered, caught, or seen.
-                </p>
-                <p style="color: rgb(229, 201, 177); font-size: 25px;">
-                  A Pokémon Randomizer is a tool or feature that alters the standard Pokémon game experience by randomizing various elements within the game. This can range from the Pokémon that appear in the wild, trainers' Pokémon, items, abilities, and even move sets.
-                  The main purpose of a Pokémon Randomizer is to create a fresh and unpredictable gameplay experience, making each playthrough unique and challenging.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-      <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
+        <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
         <div class="container-fluid text-center">
           <p class="mb-0 text-dash-gray">2024 &copy; HyperGryph. Design by <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
         </div>        
